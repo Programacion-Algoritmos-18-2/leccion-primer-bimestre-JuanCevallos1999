@@ -64,7 +64,7 @@ class EmpleadoPorHoras(Empleado):#Creamos la clase EmpleadoPorHoras que heredar�
 		return sueldo
 #Creamos el método para presentar_datos con la ayuda de un super que permitirá presentar la cadena de nuestra clase padre
 	def presentar_datos(self):
-		c = "%s\nNumero de horas%s\tValor hora%s\nSueldo total:%s"%(super(EmpleadoPorHoras, self).presentar_datos(),\
+		c = "%s\nNumero de horas%s\nValor hora%s\nSueldo total:%s"%(super(EmpleadoPorHoras, self).presentar_datos(),\
 			self.obtener_numero_horas(),self.obtener_valor_horas(),\
 			self.calcular_sueldo())
 		return c
@@ -90,8 +90,8 @@ class EmpleadoFijo(Empleado):
 		return self.descuentos
 
 	def calcular_sueldo_final(self):
-		a=self.descuentos/100
-		sueldo = self.sueldof*a+self.comisionf
+		a=(self.sueldof*self.descuentos)/100
+		sueldo = self.sueldof-a+self.comisionf
 		return sueldo
 #Creamos el método para presentar datos con el super para presentar la cadena padre y luego los nuevos atributos
 	def presentar_datos(self):
@@ -123,7 +123,7 @@ class EmpleadoPorSemanas(Empleado):
 		return sueldo
 #Creamos un método que presentara los atributos de clase padre con super y los nuevos atributos 
 	def presentar_datos(self):
-		c="%sNumero semanas:%s\tValor semana:%s\nSueldo total"%(super(EmpleadoPorSemanas, self).presentar_datos(),self.numero_semana,\
+		c="%sNumero semanas:%s\nValor semana:%s\nSueldo total"%(super(EmpleadoPorSemanas, self).presentar_datos(),self.numero_semana,\
 		self.valor_semana,self.calcular_sueldo())
 
 
